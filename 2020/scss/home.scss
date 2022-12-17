@@ -1,0 +1,342 @@
+$colour1: #ff979b;
+$colour2: #ffffff;
+$colour3: #222222;
+$colour4: #2e2e2e;
+$colour5: #ffc0c2;
+$colour6: #111111;
+
+$textcolour1: #222222;
+$textcolour2: #ffffff;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+::selection {
+    background: $colour1;
+    color: #fff;
+}
+
+/* ---------------------------------------- */
+/* Defaults */
+/* ---------------------------------------- */
+
+html {
+    background-color: $colour3;
+    color: $textcolour2;
+    font-family: 'Arial', 'sans-serif';
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+}
+
+header {
+    position: relative;
+    background-image: linear-gradient(to right, rgba(255, 151, 155, 0.7), rgba(255, 255, 255, 0.5)), url(../assets/images/hero-background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.clearfix {zoom: 1;}
+.clearfix::after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: $textcolour1;
+    font-size: 240%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: $textcolour1;
+    font-size: 90%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h2:after {
+    display: block;
+    height: 2px;
+    background-color: $colour1;
+    content: "";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.row {
+    margin: 0 auto;
+}   
+
+section {
+    padding: 80px 0;
+}
+
+.box {
+    padding: 1%;
+
+    p {
+        font-size: 100%;
+        line-height: 140%;
+    }
+}
+
+/* ---------------------------------------- */
+/* Icons */
+/* ---------------------------------------- */
+
+.icon-big {
+    font-size: 350%;
+    display: block;
+    color: $colour1;
+    padding-top: 0px;
+    padding-right: 0;
+}
+
+.icon-small {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    color: $colour1;
+    font-size: 120%;
+    line-height: 120%;
+    vertical-align: middle;
+}
+
+/* ---------------------------------------- */
+/* Nav Bar */
+/* ---------------------------------------- */
+
+nav {
+    background-color: $colour3;
+    height: 60px; 
+    display: flex !important; flex-grow: 1;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+
+    a {
+        height: 100%;
+        color: $textcolour2 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+        text-decoration: none !important;
+        transition: all 100ms ease-out;
+        cursor: pointer;
+        border-bottom: 0px solid $colour5;
+        text-transform: uppercase;
+        flex-grow: 1;
+
+        &:hover {
+            border-bottom: 4px solid $colour5;
+            background-color: $colour6;
+            transition: all 100ms ease-out;
+            color: $colour5 !important; 
+        }
+    }
+}
+
+.main-nav {
+    text-decoration: none;
+    display: inline-block;
+    list-style: none;
+    margin-top: 2%;
+    text-align: center;
+    font-size: 120%;
+
+    li {
+        display: inline-block;
+        margin-left: 20px;
+    }
+    
+    li:first-child {
+        display: inline-block;
+        margin-left: 5px;
+    }
+
+    li a:link,
+    li a:visited {
+    color: $textcolour2;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.5;
+    padding: 5px 0;
+    }
+
+    a:hover,
+    a:active {
+    border-bottom: 2px solid $colour1;
+    }
+}
+
+/* ---------------------------------------- */
+/* Title */
+/* ---------------------------------------- */
+
+#center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    h1, h3 {
+        text-align: center;
+    }
+}
+
+
+/* ---------------------------------------- */
+/* About me */
+/* ---------------------------------------- */
+
+.section-about {
+    background-color: $colour3;
+    color: $textcolour2;
+
+    p {
+        text-align: center;
+        font-size: 110%;
+    }
+}
+
+/* ---------------------------------------- */
+/* Skills */
+/* ---------------------------------------- */
+
+.section-skills {
+    padding-top: 3%;
+    padding-bottom: 2%;
+    background-color: $colour4;
+
+    h2 {
+        color: $textcolour2;
+    }
+    
+    h2:after {
+        display: block;
+        height: 2px;
+        background-color: $colour1;
+        content: " ";
+        width: 100px;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+
+    h3 {
+        color: $textcolour2;
+    }
+
+    .row {
+        padding-left: 15%;
+        padding-right: 15%;
+    }   
+}
+
+
+.skill-cols {
+    display: block;
+    margin-top: 3%;
+
+    p {
+        color: $textcolour2;
+        text-align: center;
+    }
+}
+
+.skill-icon {
+    background-color: $colour3;
+    border-radius: 100%;
+    color: $colour2;
+    font-size: 65%;
+    height: 80px;
+    width: 80px;
+    border: 2px solid $colour2;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 25px;
+    margin-left: 40%;
+    padding: 5px;
+}
+
+/* ---------------------------------------- */
+/* Tools */
+/* ---------------------------------------- */
+
+.section-tools {
+    padding-top: 3%;
+    background: $colour3 !important;
+
+    h2 {
+        color: $textcolour2;
+    }
+    
+    h2:after {
+        display: block;
+        height: 2px;
+        background-color: $colour1;
+        content: " ";
+        width: 100px;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+
+    h3 {
+        color: $textcolour2;
+    }
+
+    p {
+        padding-top: 1%;
+        color: $textcolour2;
+        text-align: center;
+    }
+
+    .row {
+        padding-left: 15%;
+        padding-right: 15%;
+    }   
+}
