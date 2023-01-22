@@ -7,30 +7,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css">
-    <script type="module" src=""></script>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <script type="module" src="index.js"></script>
     <title>Ethan Egerton</title>
 </head>
 <body>
     <nav>
-        <a href="#who" class="nav_link"><span>Who</span></a>
-        <a href="#what" class="nav_link"><span>What</span></a>
-        <a href="#where" class="nav_link"><span>Where</span></a>
+        <div class="nav_link" onclick="javascript:document.getElementById('who').scrollIntoView();"><span>Who</span></div>
+        <div class="nav_link" onclick="javascript:document.getElementById('what').scrollIntoView();"><span>What</span></div>
+        <div class="nav_link" onclick="javascript:document.getElementById('where').scrollIntoView();"><span>Where</span></div>
     </nav>
     <main>
         <section id="who">
-            <div class="avatar">
-                <a href="https://github.com/ethan-egerton" ><img src="https://avatars.githubusercontent.com/u/38867954?v=4" alt="Avatar"></a>
-            </div>
-            <h1>Ethan Egerton</h1>
-        </section>
+            <a href="https://github.com/ethan-egerton" ><img class="avatar" src="https://avatars.githubusercontent.com/u/38867954" alt="Avatar"></a>
+            <h1 style="padding-top: 3%;">Ethan Egerton</h1>
+        </section>  
         <section id="what">
-            <h1>Ethan Egerton</h1>
+            <h2>About Me</h2>
+            <ul class="card-container">
+                <article class="card" id="card1">
+                    <h3>Programming</h3>
+                    <p>Adept programming skills focused in Python and JavaScript. Experience in both back-end and front-end tools. Knowledgable in database systems and languages such as PostgreSQL. I am currently studying at the University of Portsmouth for Software Engineering. Personally learning AI technologies and applications such as Computer Vision and Neural Networks.</p>
+                </article>
+                <article class="card" id="card2">
+                    <h3>Music</h3>
+                    <p>Creating music since 2016 from no experience or lessons. Intermediate Bass player and novice six-string guitar skills. <a target="_blank" href="https://www.youtube.com/watch?v=LxCly_pA_lc">Produced a track for (((0))) also known as The Sundrop Garden</a>, which has more than 300k plays on Spotify. My music can be found on my Soundcloud under the stage name <a target="_blank" href="https://soundcloud.com/dbno">DBNO</a>.</p>
+                </article>
+                <article class="card" id="card3">
+                    <h3>Projects</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim dolorem id exercitationem non molestiae nisi aliquid modi eaque? Sapiente odio reprehenderit repudiandae labore voluptas. Dolor debitis voluptatibus doloribus magni fugiat?</p>
+                </article>
+            </ul>
         </section>
         <section id="where">
-            <h1>Ethan Egerton</h1>
+            <h1>Where You Can Find Me</h1>
         </section>
     </main>
-    
 </body>
 </html>

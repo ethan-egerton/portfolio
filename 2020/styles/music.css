@@ -262,8 +262,24 @@ nav a:hover {
           transform: height 150%, width 150%;
   -webkit-filter: grayscale(0%);
           filter: grayscale(0%);
-  -webkit-box-shadow: 1px 1px 0px #ff4747, 2px 2px 0px #ff8a47, 3px 3px 0px #ffe573, 4px 4px 0px #c8ff61, 5px 5px 0px #61ff9e, 6px 6px 0px #61fff2, 7px 7px 0px #61a5ff, 8px 8px 0px #7961ff, 9px 9px 0px #fa61ff;
-          box-shadow: 1px 1px 0px #ff4747, 2px 2px 0px #ff8a47, 3px 3px 0px #ffe573, 4px 4px 0px #c8ff61, 5px 5px 0px #61ff9e, 6px 6px 0px #61fff2, 7px 7px 0px #61a5ff, 8px 8px 0px #7961ff, 9px 9px 0px #fa61ff;
+  -webkit-box-shadow: 1px 1px 0px #ff4747,
+ 2px 2px 0px #ff8a47,
+ 3px 3px 0px #ffe573,
+ 4px 4px 0px #c8ff61,
+ 5px 5px 0px #61ff9e,
+ 6px 6px 0px #61fff2,
+ 7px 7px 0px #61a5ff,
+ 8px 8px 0px #7961ff,
+ 9px 9px 0px #fa61ff;
+          box-shadow: 1px 1px 0px #ff4747,
+ 2px 2px 0px #ff8a47,
+ 3px 3px 0px #ffe573,
+ 4px 4px 0px #c8ff61,
+ 5px 5px 0px #61ff9e,
+ 6px 6px 0px #61fff2,
+ 7px 7px 0px #61a5ff,
+ 8px 8px 0px #7961ff,
+ 9px 9px 0px #fa61ff;
 }
 
 .iframe-wrapper:before {
@@ -285,7 +301,6 @@ nav a:hover {
   size: 150%;
 }
 
-/*TODO: add js to change the colours through a gradient*/
 .title-text {
   background: -webkit-linear-gradient(red, blue);
   -webkit-background-clip: text;
