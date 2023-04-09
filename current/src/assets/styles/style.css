@@ -1,0 +1,142 @@
+:root {
+    --text-colour: rgb(255, 192, 75); 
+}
+
+@font-face {
+    font-family: 'EuroPC';
+    src: url('../fonts/Px437_EuroPC_Mono.ttf') format('ttf');
+    src: url('../fonts/Web437_EuroPC_Mono.woff') format('woff');
+}  
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'EuroPC';
+}
+
+::selection {
+    color: #0F0801;
+    background-color: var(--text-colour);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+body {
+    background-color: black;
+    font-size: 1.1rem;
+    color: var(--text-colour);
+    text-shadow: 0px 0px 12px rgba(255, 166, 0, 0.753),
+        0px 0px 20px rgba(255, 166, 0, 0.479),
+        0px 0px 30px rgba(255, 166, 0, 0.39);
+    line-height: 20px;
+}
+
+input {
+    border: 0;
+    background-color: transparent;
+    font-size: 1.1rem;
+    color: var(--text-colour);
+    text-shadow: 0px 0px 12px rgba(255, 166, 0, 0.753),
+        0px 0px 20px rgba(255, 166, 0, 0.479),
+        0px 0px 30px rgba(255, 166, 0, 0.39);
+}
+
+@keyframes cursor-blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+.screen {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url('../images/bezel.png') no-repeat center center rgba(255, 166, 0, 0.062);
+    background-size: 100% 100%;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    user-select: none;
+}
+
+.type-box {
+    outline: 0;
+    caret-color: transparent;
+    text-transform: uppercase;
+}
+
+.type-box:focus {
+    color: #0F0801 !important;
+    background: var(--text-colour)  
+
+}
+
+.content {
+    padding: 7rem 7rem;
+}
+
+/* Thank you very much Mehdi, truly a chad */
+/* https://codepen.io/meduzen/pen/zxbwRV */
+.scanlines {
+    position: relative;
+    overflow: hidden;
+}
+.scanlines:before, .scanlines:after {
+    display: block;
+    pointer-events: none;
+    content: "";
+    position: absolute;
+}
+.scanlines:before {
+    width: 100%;
+    height: 2px;
+    z-index: 2147483649;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0.75;
+    -webkit-animation: scanline 6s linear infinite;
+            animation: scanline 6s linear infinite;
+}
+.scanlines:after {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2147483648;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3) 51%);
+    background-size: 100% 4px;
+    -webkit-animation: scanlines 3s steps(30) infinite;
+            animation: scanlines 3s steps(30) infinite;
+}
+
+/* ANIMATE UNIQUE SCANLINE */
+@-webkit-keyframes scanline {
+    0% {
+        transform: translate3d(0, 200000%, 0);
+    }
+}
+@keyframes scanline {
+    0% {
+        transform: translate3d(0, 200000%, 0);
+    }
+}
+@-webkit-keyframes scanlines {
+    0% {
+        background-position: 0 50%;
+    }
+}
+@keyframes scanlines {
+    0% {
+        background-position: 0 50%;
+    }
+}
