@@ -53,12 +53,36 @@ input {
     }
 }
 
+p {
+    outline: 0;
+    caret-color: transparent;
+}
+
+p::after {
+    content: "\A";
+    white-space: pre-wrap;
+}
+
 .screen {
     position: relative;
     width: 100vw;
     height: 100vh;
     background: url('../images/bezel.png') no-repeat center center rgba(255, 166, 0, 0.062);
     background-size: 100% 100%;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .background {
@@ -73,7 +97,6 @@ input {
 .type-box {
     outline: 0;
     caret-color: transparent;
-    text-transform: uppercase;
 }
 
 .type-box:focus {
@@ -84,6 +107,7 @@ input {
 
 .content {
     padding: 7rem 7rem;
+    white-space: pre-wrap;
 }
 
 /* Thank you very much Mehdi, truly a chad */
