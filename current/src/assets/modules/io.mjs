@@ -1,4 +1,4 @@
-async function postText(text, pauseTime=0, text2="", textSleepTime=0,) {
+export async function postText(text, pauseTime=0, text2="", textSleepTime=0,) {
     const container = document.querySelector(".content");
     const paragraph = document.createElement('p');
     paragraph.textContent = text;
@@ -24,21 +24,23 @@ async function ellipses(count, pauseTime) {
     }
 }
 
-function clearContainer() {
+export function clearContainer() {
     const container = document.querySelector(".content");
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
 }
 
-function sleep(ms) {
+export function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function userInput() {
+export function userInput() {
     const paragraph = document.createElement('p');
+    const span = document.createElement('span');
     paragraph.textContent = "C:\\usr\\ethan-egerton> ";
-    paragraph.id = "input";
+    span.id = "input";
+    paragraph.appendChild(span)
 
     const container = document.querySelector(".content");
     container.appendChild(paragraph);

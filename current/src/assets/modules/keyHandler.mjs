@@ -1,3 +1,6 @@
+import * as commands from "./commands.mjs";
+import { userInput, clearContainer, sleep } from "./io.mjs";
+
 let capslock = false
 
 const lowercaseKeyDict = {
@@ -58,7 +61,7 @@ const uppercaseKeyDict = {
   "Slash": "?",
 };
 
-export function keyPress(e) {
+export async function keyPress(e) {
   e.preventDefault()
   let keyString = e.code;
   const inputElement = document.querySelector("#input");
@@ -67,8 +70,12 @@ export function keyPress(e) {
 
   switch(keyString) {
     case "Enter":
-      executeCommand(inputElement.textContent);
+      await executeCommand(inputElement.textContent);
       inputElement.id = "";
+      await sleep(100);
+      userInput();
+      console.log("double ball")
+      break;
     case "Backspace":
       inputElement.textContent = inputElement.textContent.slice(0,-1);
       break;
@@ -93,8 +100,24 @@ export function keyUp(e) {
   }
 }
 
-function executeCommand(command) {
-  console.log(command)
+function executeCommand(input) {
+  console.log(input);
+  input = input.toLowerCase();
+  const split = input.split(" ")
+  input = split[0];
+  split.pop(0);
+  const params = split;
+
+  switch(input) {
+    case "help":
+      commands.help(params);
+      break;
+    case "clear":
+      clearContainer();
+      break;
+    default:
+      commands.unknown(input)
+  }
 }
 
 

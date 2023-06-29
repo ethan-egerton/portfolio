@@ -4,7 +4,7 @@ import { bootUp } from "./io.mjs"
 document.addEventListener('keydown', function (event) { keyPress(event); });
 document.addEventListener('keyup', function (event) { keyUp(event); });
 
-const AUDIO_VOLUME = 0;
+const AUDIO_VOLUME = 0.3;
 
 window.addEventListener('load', function (event) {
     // Audio
