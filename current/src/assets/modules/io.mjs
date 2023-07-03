@@ -1,3 +1,7 @@
+const MAX_LINES = 35;
+const old_lines = [];
+const new_lines = [];
+
 export async function postText(text, pauseTime=0, text2="", textSleepTime=0,) {
     const container = document.querySelector(".content");
     const paragraph = document.createElement('p');
@@ -9,6 +13,35 @@ export async function postText(text, pauseTime=0, text2="", textSleepTime=0,) {
     if (text2 != "") {
         await sleep(textSleepTime);
         container.lastChild.textContent = container.lastChild.textContent + text2;
+    }
+    checkLines()
+}
+
+function checkLines() {
+    const container = document.querySelector(".content");
+    if (container.childElementCount >= MAX_LINES) {
+        old_lines.push(container.firstElementChild);
+        container.removeChild(container.firstChild);
+    }
+}
+
+export function showNewLine() {
+    const container = document.querySelector(".content");
+    if (container.childElementCount >= MAX_LINES && new_lines.length != 0) {
+        old_lines.push(container.firstElementChild);
+        container.removeChild(container.firstChild);
+        container.append(new_lines[new_lines.length - 1]);
+        new_lines.pop();
+    }
+}
+
+export function showOldLine() {
+    const container = document.querySelector(".content");
+    if (container.childElementCount >= MAX_LINES && old_lines.length != 0) {
+        new_lines.push(container.lastElementChild);
+        container.removeChild(container.lastChild);
+        container.prepend(old_lines[old_lines.length - 1]);
+        old_lines.pop();
     }
 }
 

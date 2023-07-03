@@ -1,5 +1,5 @@
 import * as commands from "./commands.mjs";
-import { userInput, clearContainer, sleep } from "./io.mjs";
+import { userInput, clearContainer, sleep, showNewLine, showOldLine } from "./io.mjs";
 
 let capslock = false
 
@@ -74,7 +74,6 @@ export async function keyPress(e) {
       inputElement.id = "";
       await sleep(100);
       userInput();
-      console.log("double ball")
       break;
     case "Backspace":
       inputElement.textContent = inputElement.textContent.slice(0,-1);
@@ -84,6 +83,9 @@ export async function keyPress(e) {
       break;
     case "ShiftLeft": case "ShiftRight":
       capslock = true;
+      break;
+    case "F5":
+      location.reload();
       break;
     default:
       if (capslock) {keyString = keyString.toUpperCase();}
@@ -100,7 +102,15 @@ export function keyUp(e) {
   }
 }
 
-function executeCommand(input) {
+export function scroll(e) {
+  if (e.deltaY > 0) {
+    showNewLine();
+  } else if (e.deltaY < 0) {
+    showOldLine();
+  }
+}
+
+async function executeCommand(input) {
   console.log(input);
   input = input.toLowerCase();
   const split = input.split(" ")
@@ -112,11 +122,18 @@ function executeCommand(input) {
     case "help":
       commands.help(params);
       break;
+    case "time":
+      commands.time();
+      break;
+    case "portfolio":
+      await commands.portfolio();
+      break;
     case "clear":
       clearContainer();
       break;
     default:
       commands.unknown(input)
+      break;
   }
 }
 

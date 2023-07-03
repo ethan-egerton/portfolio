@@ -1,10 +1,11 @@
-import { keyPress, keyUp } from "./keyHandler.mjs";
+import { keyPress, keyUp, scroll } from "./keyHandler.mjs";
 import { bootUp } from "./io.mjs"
 
 document.addEventListener('keydown', function (event) { keyPress(event); });
 document.addEventListener('keyup', function (event) { keyUp(event); });
+window.addEventListener('wheel', function(event) { scroll(event); });
 
-const AUDIO_VOLUME = 0.3;
+const AUDIO_VOLUME = 0;
 
 window.addEventListener('load', function (event) {
     // Audio
