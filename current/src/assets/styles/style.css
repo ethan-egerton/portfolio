@@ -73,7 +73,7 @@ p::after {
 
 .fade-in {
   opacity: 0;
-  animation: fadeIn 8s ease-in-out forwards;
+  animation: fadeIn 4s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
