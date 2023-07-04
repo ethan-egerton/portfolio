@@ -51,7 +51,7 @@ export async function portfolio() {
     await postText("    Web Development", 200);
     await postText("    Database Development", 200);
     await postText("    Mobile Application Development", 200);
-    postText();
+    await postText();
 }
 
 export function time() {

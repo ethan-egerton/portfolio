@@ -1,5 +1,5 @@
 import * as commands from "./commands.mjs";
-import { userInput, clearContainer, sleep, showNewLine, showOldLine } from "./io.mjs";
+import { userInput, clearContainer, sleep, showNewLine, showOldLine, checkLines, bringToNewestLine } from "./io.mjs";
 
 let capslock = false
 
@@ -62,7 +62,8 @@ const uppercaseKeyDict = {
 };
 
 export async function keyPress(e) {
-  e.preventDefault()
+  e.preventDefault();
+  bringToNewestLine();
   let keyString = e.code;
   const inputElement = document.querySelector("#input");
 
@@ -132,7 +133,8 @@ async function executeCommand(input) {
       clearContainer();
       break;
     default:
-      commands.unknown(input)
+      commands.unknown(input);
+      checkLines();
       break;
   }
 }

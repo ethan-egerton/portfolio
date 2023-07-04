@@ -14,10 +14,10 @@ export async function postText(text, pauseTime=0, text2="", textSleepTime=0,) {
         await sleep(textSleepTime);
         container.lastChild.textContent = container.lastChild.textContent + text2;
     }
-    checkLines()
+    await checkLines()
 }
 
-function checkLines() {
+export function checkLines() {
     const container = document.querySelector(".content");
     if (container.childElementCount >= MAX_LINES) {
         old_lines.push(container.firstElementChild);
@@ -44,6 +44,16 @@ export function showOldLine() {
         old_lines.pop();
     }
 }
+
+export function bringToNewestLine() {
+    while (new_lines != 0) {
+        old_lines.push(container.firstElementChild);
+        container.removeChild(container.firstChild);
+        container.append(new_lines[new_lines.length - 1]);
+        new_lines.pop();
+    }
+}
+
 
 async function ellipses(count, pauseTime) {
     const container = document.querySelector(".content");

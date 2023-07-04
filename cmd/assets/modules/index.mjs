@@ -7,7 +7,7 @@ window.addEventListener('wheel', function(event) { scroll(event); });
 
 const AUDIO_VOLUME = 0;
 
-window.addEventListener('load', function (event) {
+window.addEventListener('load', function () {
     // Audio
     const startupAudio = new Audio('./assets/sounds/startup.mp3');
     const loopAudio = new Audio('./assets/sounds/loop.mp3');
