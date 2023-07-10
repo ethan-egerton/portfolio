@@ -1,0 +1,230 @@
+:root {
+  --title-font: Archivo-Expanded-Bold;
+  --colour1: #1d1c1c;
+  --colour2: #fffefa;
+}
+
+@font-face {
+    font-family: Archivo-Expanded-Bold;
+    src: url(assets/Archivo_Expanded-Bold.ttf);
+}
+
+* {
+  margin: 0;
+}
+
+a:visited {
+  color: inherit;
+}
+
+body {
+  background-color: #fffefa;
+  color: var(--colour1);
+}
+
+.navbar {
+  height: 5rem;
+  width: 100vw;
+  background-color: var(--colour2);
+  border-bottom: 0.2rem solid var(--colour1) ;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  position: fixed;
+}
+
+.image-anchor {
+  max-width: 100%;
+  border-radius: 50%;
+  margin-left: 0.2rem;
+  align-self: center;
+}
+
+.nav-pfp {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  height: 4rem;
+  border-radius: 50%;
+  border: 0.2rem solid var(--colour1);
+  align-self: center;
+}
+
+.navbar-options {
+  list-style: none;
+  display: flex;
+  justify-content: right;
+  align-content: center;
+}
+
+.navbar-option {
+  margin: 0 2rem;
+  width: auto;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-option p {
+  font-family: Archivo-Expanded-Bold;
+}
+
+.navbar-option span {
+  font-size: 2rem;
+  margin-left: 0.2rem;
+}
+
+.github-icon {
+  margin-left: 0.2rem;
+  height: 3rem;
+}
+
+.main {
+  position: relative;
+  width: 100vw;
+}
+
+.hero {
+  width: 100vw;
+  height: 100vh;
+  position: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  margin-left: 2rem;
+  position: inherit;
+}
+
+h1 {
+  font-family: Archivo-Expanded-Bold;
+  font-size: 8vw;
+  margin: 0;
+  line-height: 0.9;
+  user-select: none;
+  position: static;
+}
+
+.hero-textbox {
+  width: 50vw;
+  margin-right: 2rem;
+  text-align: left;
+  font-size: 2.5vw;
+  font-family: 'Lato', Arial;
+  font-weight: 300;
+  animation-name: slide-from-right;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(.47,1.93,.9,.35);
+}
+
+.projects {
+  display: inherit;
+  transform: skewY(2rem);
+}
+
+.project-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-items: center;
+  align-items: start;
+  width: 100vw;
+  padding-top: 1rem;
+}
+
+.project-box {
+  width: 420px;
+  height: 340px;
+  border: 0.5rem solid var(--colour1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.685);
+  background-color: #f5f0f0;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.project-box img {
+  width: 380px;
+  height: 250px;
+  border-radius: 1rem;
+}
+
+.project-box h3 {
+  margin-top: 0.5rem;
+  font-family: Archivo-Expanded-Bold;
+}
+
+.project-box p {
+  font-family: 'Lato', Arial;
+  text-align: center;
+}
+
+@keyframes randomize {
+  10% {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'Lato', sans-serif;
+  }
+  20% {
+    font-weight: bold;
+  }
+
+  30% {
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  40% {
+    font-style: italic;
+  }
+
+  50% {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+  }
+
+  60% {
+    font-family: 'Courier New', monospace;
+  }
+
+  70% {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  80% {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+  }
+
+  100% {
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Times New Roman', serif;
+  }
+}
+
+.randomize-text span {
+  display: inline-block;
+  animation-name: randomize;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(.11,1.25,.81,.79);
+}
+
+@keyframes slide-from-right {
+  0% {
+    position: relative;
+    z-index: -100;
+    right: -70%;
+  }
+
+  100% {
+    position: relative;
+    z-index: -100;
+    right: 0%;
+  }
+}
