@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hangman</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/app.css">
+</head>
+<section id="loading-roller">
+    <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</section>
+<main class="app display-none">
+    <section class="title">
+        <h1>Hangman</h1>
+    </section>
+    <section class="sidebar">
+        <section class="sidebar-top">
+            <div class="controls">
+                <button class="btn btn-control" id="btn-single">Singleplayer</button>
+                <button class="btn btn-control" id="btn-multi">Multiplayer</button>
+                <button class="btn btn-control" id="btn-settings">Settings</button>
+                <button class="btn btn-control" id="btn-history">History</button>
+                <button class="btn btn-quit display-none" id="btn-end">End Game</button>
+            </div>
+            <div class="multiplayer-menu-controls display-none">
+                <button class="btn btn-control" id="btn-multiplayer-hangman">Hangman</button>
+                <button class="btn btn-control" id="btn-multiplayer-blitz">Blitz</button>
+            </div>
+            <div class="app-screen">
+                <img id="hangman-display" class="hangman-display" src="assets/images/11.png" alt="Hangman Display" height="300" width="300">
+            </div>
+        </section>
+        <section>
+            <div class="topic-display display-none" id="topic-display">
+                <h2 id="topic-selected">Select a topic</h2>
+            </div>
+            <div class="letters display-none" id="letter-display">
+            </div>
+            <div class="topic-display display-none" id="lobby-code-display">
+              <h2 class="code-display">Waiting for a player to join</h2>
+              <h3 class="code-display">Join the code: <p class="selectable-text" id="lobby-code"></p> </h3>
+              <button class="btn" id="confirm-id">Add link to clipboard</button>
+            </div>
+        </section>
+        <section id="sidebar-bot" class="sidebar-bot display-none">
+            <div id="topics" class="topics display-none"></div>
+            <div id="keyboard" class="keyboard display-none"></div>
+            <div id="multiplayer" class="display-none">
+                <button class="btn" id="create-lobby">Create Lobby</button>
+                <input class="btn" id="lobby-id-input">
+                <button class="btn" id="confirm-id">Enter Lobby</button>
+            </div>
+        </section>
+    </section>
+</main>
+<script src="../modules/index.mjs" type="module"></script>
+</html>
