@@ -5,7 +5,7 @@ document.addEventListener('keydown', function (event) { keyPress(event); });
 document.addEventListener('keyup', function (event) { keyUp(event); });
 window.addEventListener('wheel', function(event) { scroll(event); });
 
-const AUDIO_VOLUME = 0;
+const AUDIO_VOLUME = 0.5;
 
 window.addEventListener('load', function () {
     // Audio

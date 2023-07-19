@@ -13,6 +13,11 @@
   margin: 0;
 }
 
+a:link {
+  color: inherit;
+  text-decoration: none;
+}
+
 a:visited {
   color: inherit;
 }
@@ -23,6 +28,7 @@ body {
 }
 
 .navbar {
+  z-index: 1000;
   height: 5rem;
   width: 100vw;
   background-color: var(--colour2);
@@ -91,42 +97,78 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .title {
   margin-left: 2rem;
+  padding-bottom: 30vh;
   position: inherit;
 }
 
 h1 {
   font-family: Archivo-Expanded-Bold;
-  font-size: 8vw;
+  font-size: 12vw;
   margin: 0;
   line-height: 0.9;
   user-select: none;
   position: static;
+  z-index: -1;
 }
 
 .hero-textbox {
-  width: 50vw;
+  padding-top: 50vh;
+  width: 40vw;
+  position: sticky;
   margin-right: 2rem;
-  text-align: left;
+  text-align: right;
   font-size: 2.5vw;
   font-family: 'Lato', Arial;
   font-weight: 300;
-  animation-name: slide-from-right;
-  animation-duration: 2s;
+  z-index: -2;
+  right: -700px;
+  animation: slide-from-right 2s forwards;
   animation-timing-function: cubic-bezier(.47,1.93,.9,.35);
 }
 
+.hero a span {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 30px;
+  height: 50px;
+  margin-left: -15px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+
+.hero a span::before {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: #fff;
+  border-radius: 100%;
+  -webkit-animation: sdb10 2s infinite;
+  animation: sdb10 2s infinite;
+  box-sizing: border-box;
+}
+
 .projects {
-  display: inherit;
-  transform: skewY(2rem);
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  color: #1d1c1c91;
 }
 
 .project-boxes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(437px, 1fr));
   justify-items: center;
   align-items: start;
   width: 100vw;
@@ -140,32 +182,44 @@ h1 {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.685);
   background-color: #f5f0f0;
   border-radius: 1rem;
-  margin: 0.5rem;
+  margin: 0rem 0.5rem;
   margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column;
+  color: var(--colour1);
 }
 
 .project-box img {
   width: 380px;
+  max-width: 380px;
   height: 250px;
+  max-height: 250px;
   border-radius: 1rem;
+  border: 0.2rem solid var(--colour1);
 }
 
 .project-box h3 {
   margin-top: 0.5rem;
   font-family: Archivo-Expanded-Bold;
+  color: var(--colour1);
 }
 
 .project-box p {
   font-family: 'Lato', Arial;
   text-align: center;
+  margin: 0 1rem;
+  color: var(--colour1);
+}
+
+.project-box a:visited {
+  color: inherit;
 }
 
 @keyframes randomize {
   10% {
+    position: absolute;
     font-weight: normal;
     font-style: normal;
     font-family: 'Lato', sans-serif;
@@ -208,7 +262,7 @@ h1 {
 }
 
 .randomize-text span {
-  display: inline-block;
+  display: relative;
   animation-name: randomize;
   animation-duration: 1s;
   animation-iteration-count: 1;
@@ -217,14 +271,97 @@ h1 {
 
 @keyframes slide-from-right {
   0% {
-    position: relative;
-    z-index: -100;
-    right: -70%;
+    position: absolute;
+    z-index: -1;
+    right: -1400px;
   }
 
   100% {
     position: relative;
-    z-index: -100;
-    right: 0%;
+    z-index: -1;
+    right: 0px;
+  }
+}
+
+@-webkit-keyframes sdb10 {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes sdb10 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Portrait */
+
+@media (orientation: portrait) {
+  .navbar-option p {
+    display: none;
+  }
+
+  .hero {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+
+  .title {
+    margin-top: 100px;
+    margin-left: 2rem;
+    align-self: flex-start;
+  }
+
+  h1 {
+    position: relative;
+    font-family: Archivo-Expanded-Bold;
+    font-size: 18vw;
+    margin: 0;
+    line-height: 0.9;
+    user-select: none;
+  }
+
+  .hero-textbox {
+    align-self: flex-end;
+    display: relative;
+    min-width: 80vw;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    font-size: 5vw;
+    font-family: 'Lato', Arial;
+    font-weight: 300;
+    z-index: -1;
+    right: -700px;
+    animation: slide-from-right 2s forwards;
+    animation-timing-function: cubic-bezier(.47,1.93,.9,.35);
+    overflow-y: hidden;
+    padding-top: 0;
   }
 }
